@@ -23,7 +23,7 @@ export default class OrganizationMemberRow extends React.PureComponent {
     canRemoveMembers: PropTypes.bool,
     canAddMembers: PropTypes.bool,
     currentUser: SentryTypes.User,
-    status: PropTypes.oneOf(['loading', 'success', 'error'])
+    status: PropTypes.oneOf(['', 'loading', 'success', 'error'])
   };
 
   constructor(...args) {
@@ -143,7 +143,7 @@ export default class OrganizationMemberRow extends React.PureComponent {
         </td>
 
         <td className="squash">{roleName}</td>
-        {canRemoveMembers || memberCanLeave
+        {showRemoveButton || showLeaveButton
           ? <td className="align-right squash">
               <Button
                 style={{marginRight: 4}}
